@@ -1,10 +1,14 @@
+
 document.addEventListener('DOMContentLoaded', () => {
+
   // To start off let us start the json server and test the routes in our web browser
 
+
   // Basic Get Request
-  // fetch(url)
-  // .then((r)=>r.json())
-  // .then((data)=> )
+  fetch("http://localhost:3000/stores")
+  .then((r)=>r.json())
+  .then((data)=> {renderHeader(data)
+                  renderFooter(data)} )
   // .catch(e => console.log(e))
 
   // We can fetch either all the data or just one!
@@ -14,11 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Yesterdays:
   // Renders Header
-  function renderHeader(){
+  function renderHeader(bookStore){
     document.querySelector('h1').textContent = bookStore.name;
   }
   // Renders Footer
-  function renderFooter(){
+  function renderFooter(bookStore){
     const footerDivs = document.querySelectorAll('footer div');
     footerDivs[0].textContent = bookStore.name;
     footerDivs[1].textContent = bookStore.address;
@@ -30,3 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Now instead of calling bookData let us fetch from the database
 
 })
+
+
+fetch("http://localhost:3000/stores", { 
+  method: "POST",
+  headers: {
+    "Content-Type" : "application/json"
+  },
+  body : JSON.stringify({
+    name: "Test"
+  })
+})
+.then( r => r.json())
+.then (data => console.log(data))
+
+
+
+
+
+
+

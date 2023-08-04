@@ -74,25 +74,145 @@ const inventory = [
 
 // Function Declaration!
 
+function firstFunction(){
+    console.log("WE ARE IN A FUNCITON");
+    console.log("YIPEE")
+}
+
+
 // Now lets call the function
+
+firstFunction()
+
+function secondFunction(data) {
+    console.log(data)
+}
+
+
+secondFunction("")
 
 // Lets make a function with a parameter
 // Using the data above what sort of function can we create?
+
+
+function addNumbers(num1, num2) {
+    return num1 + num2;
+}
+
+
 
 // Anonomous Functions? Another way to write functions!
 // Whats the difference? It comes down to where it is called
 
 
+console.log(
+    function(one) {
+        return "Anonymous"
+    }()
+)
+
+
+
+
+
 // Arrow Functions
 // Arrow functions vs regular functions vs anonomous functions????
+console.log(
+    () => {
+        console.log("Hellow Arrow")
+        }
+)
+
+
 // Lets refactor the regular function above to be an arrow function!
+
+const arrowFunc = () => {
+    console.log("Hellow Arrow")
+}
+
+arrowFunc()
+
+
+
+
 
 // Now you try it!
 
 // Scoping
 // Global Scope
+// console.log(inventory);
+
 // Function Scope
+function scopeTesting() {
+    const scopeVar = "We are in an function";
+    return scopeVar
+}
+
+const newVar = scopeTesting()
+
+console.log(newVar)
+
+
+
+
+
 // Block Scope (If, else, for, while)
 
+const ifStatement = 9
+
+
+if (ifStatement > 0) {
+    console.log('In If')
+}
+else {
+    console.log('in else')
+}
+
+
+//for (let x=0; x<10; x++) {
+//    console.log(x);
+//}
+
+
+const arrayExample = [1, 2, 3, 4, 5, 6]
+
+arrayExample.map((x)=> console.log(x))
+
+
+
+inventory.forEach(
+    (item) => {
+        console.log(item["title"])
+    }
+)
+
+
 // Callback Functions, calling a function in a function
+
+
+function outerFunction(innerFunction) {
+    console.log("outerFunction")
+    innerFunction()
+}
+
+
+function bob() {
+    console.log("Inner Function")
+}
+
+outerFunction(bob)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
